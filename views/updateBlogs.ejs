@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update Blogs</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9QYPB859W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V9QYPB859W');
+</script>
+
+</head>
+<body>
+    <header>Update or delete faulty blogs</header>
+
+<main>
+    <% blogs.forEach((blog)=>{%> 
+        <div class="blog" id="<%=blog._id %>">
+            <h1><%= blog.tittle %></h1>
+            <form action="/update_blog" method="post">
+                <input type="text" readonly="true" name="_id" value="<%=blog._id %>" required="true">
+                <label for="imgsrc">The source of the image</label>
+                <input type="text" name="imageSrc" id="imgsrc" required="true" value="<%=blog.imageSrc %>">
+
+                <label for="firstparagraph">first paragraph</label>
+                <p><%=blog.firstParagraph%></p>
+                <textarea name="firstParagraph" id="firstparagraph" cols="30" rows="10" required="true" value="<%=blog.firstParagraph%>"></textarea>
+    
+                <label for="secondparagraph"> second paragraph</label>
+                <p><%=blog.secondParagraph%></p>
+                <textarea name="secondParagraph" id="secondparagraph" cols="30" rows="10"  value="<%=blog.secondParagraph %>"></textarea>
+    
+                <label for="thirdParagraph">3rd paragraph</label>
+                <p><%=blog.thirdParagraph%></p>
+                <textarea name="thirdParagraph" id="thirdParagraph" cols="30" rows="10" value="<%=blog.thirdParagraph%>"></textarea>
+    
+                <label for="fourthParagraph"> 4th paragraph</label>
+                <p><%=blog.fourthParagraph%></p>
+                <textarea name="fourthParagraph" id="fourthParagraph" cols="30" rows="10" value="<%=blog.fourthParagraph%>"></textarea>
+    
+                <label for="fiveParagraph"> 5th paragraph</label>
+                <p><%=blog.fiveParagraph%></p>
+                <textarea name="fiveParagraph" id="fiveParagraph" cols="30" rows="10" value="<%=blog.fiveParagraph%>"></textarea>
+    
+                <label for="sixParagraph"> 6th paragraph</label>
+                <p><%=blog.sixParagraph%></p>
+                <textarea name="sixParagraph" id="sixParagraph" cols="30" rows="10" value="<%=blog.sixParagraph%>"></textarea>
+    
+                <label for="sevenParagraph"> 7th paragraph</label>
+                <p><%=blog.sevenParagraph%></p>
+                <textarea name="sevenParagraph" id="fourthParagraph" cols="30" rows="10" value="<%=blog.sevenParagraph%>"></textarea>
+    
+                <label for=" eigthParagraph"> 8th paragraph</label>
+                <p><%=blog.eigthParagraph%></p>
+                <textarea name=" eigthParagraph" id="fourthParagraph" cols="30" rows="10" value="<%=blog.eigthParagraph%>"></textarea>
+    
+                <label for=" nineParagraph"> 9th paragraph</label>
+                <p><%=blog.nineParagraph%></p>
+                <textarea name="nineParagraph" id="fourthParagraph" cols="30" rows="10" value="<%=blog.nineParagraph%>"></textarea>
+                <button type="submit" id="update_blog">Update blog</button>
+            </form>
+            <button id="delete_blog">Delete blog</button>
+        </div>
+        <%})%>
+</main>
+
+<script src="./javascript/update.js"></script>
+</body>
+</html>

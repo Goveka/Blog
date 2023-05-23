@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech&finance guide|| Home</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="icon" href="t&f3.svg">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9QYPB859W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V9QYPB859W');
+</script>
+
+</head>
+<body>
+    <header>
+        <img src="t&f3.svg" alt="logo">
+        <h1>Tech&finance Info</h1>
+        <h4>Equip yourself with the right knowledge</h4>
+    </header>
+    <main>
+        <div id="description">
+            <h3>Recent blog post</h3>
+            <h5>Blog posts are arranged from the newest to the oldest!!</h5>
+        </div>
+        <div id="blogPosts">
+            <% blogPosts.forEach((post)=>{%>
+                <div class="blogPost">
+                    <img src="<%= post.contentImageUrl %>" alt="content">
+                    <h2><%= post.tittle %></h2>
+                    <a href="/article/<%= post._id %>">Read article here</a>
+                </div>
+                <%})%>
+        </div>
+    </main>
+    <footer>
+        <h2 class="footer">copyright<i class="fas fa-copyright"></i> 2023 - present| Tech&finance Info| developed by sizwe| Email:sizwenkala80@gmail.com</h2>
+      </footer>
+</body>
+</html>

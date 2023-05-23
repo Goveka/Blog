@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex: 1;
+    padding: 20px;
+}
+
+header{
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1{
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+main div{
+    margin-bottom: 20px;
+}
+
+main h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+main h5{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+main img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+main p{
+    margin-bottom: 10px;
+}
+
+.swiperwrapper{
+    display: flex;
+    overflow-x: auto;
+}
+
+.swiperwrapper > div {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.swiperwrapper h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.swiperwrapper img {
+    width:100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.swiperwrapper p{
+    margin-bottom: 10px;
+}
+
+.swiperwrapper a{
+    display: inline-block;
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+
+.swiperwrapper a:hover{
+    text-decoration: underline;
+}
+
+a{
+    display: inline-block;
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+footer{
+    background-color: #0f0e0e;
+    padding: 10px;
+    color: blue;
+    text-align: center;
+}
+.footer{
+    font-size: 12px;
+}
+
+@media (max-width: 767px){
+    header h1{
+        font-size: 20px;
+    }
+
+    main{
+        padding: 10px;
+        flex: 1;
+    }
+
+    .swiperwrapper > div{
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1023px){
+    header h1 {
+        font-size: 28px;
+    }
+
+    main{
+        padding: 15px;
+        flex: 1;
+    }
+}
