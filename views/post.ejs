@@ -48,99 +48,14 @@
                         <a href="/article/<%= posts._id %>">Read article here</a>
                     </div>
                     <%})%>
+                     <i  id="prevBtn" class="fas fa-angle-left fa-6x"></i>
+                     <i id="nextBtn" class="fas fa-angle-right fa-6x"></i>
             </div>
     </main>
     <footer>
         <h2 class="footer">copyright<i class="fas fa-copyright"></i> 2023 - present| chat corp| developed by sizwe| Email:sizwenkala80@gmail.com</h2>
       </footer>
-
-      <script>
-      // Get the slider container element
-const slider = document.getElementById('slider');
-
-// Get all the slides
-const slides = slider.getElementsByClassName('slide');
-
-// Set the current slide index and total slides count
-let currentSlideIndex = 0;
-const totalSlides = slides.length;
-
-// Variables for touch events
-let touchStartX = 0;
-let touchEndX = 0;
-
-// Show the initial slide
-slides[currentSlideIndex].style.display = 'block';
-
-// Function to move to the next slide
-function nextSlide() {
-   // Hide the current slide
-   slides[currentSlideIndex].style.display = 'none';
-
-   // Increment the slide index
-   currentSlideIndex++;
-
-   // Wrap around to the first slide if reached the end
-   if (currentSlideIndex >= totalSlides) {
-       currentSlideIndex = 0;
-   }
-
-   // Show the next slide
-   slides[currentSlideIndex].style.display = 'block';
-}
-
-// Function to move to the previous slide
-function previousSlide() {
-   // Hide the current slide
-   slides[currentSlideIndex].style.display = 'none';
-
-   // Decrement the slide index
-   currentSlideIndex--;
-
-   // Wrap around to the last slide if reached the beginning
-   if (currentSlideIndex < 0) {
-       currentSlideIndex = totalSlides - 1;
-   }
-
-   // Show the previous slide
-   slides[currentSlideIndex].style.display = 'block';
-}
-
-// Function to handle touch start event
-function handleTouchStart(event) {
-   touchStartX = event.touches[0].clientX;
-}
-
-// Function to handle touch end event
-function handleTouchEnd(event) {
-   touchEndX = event.changedTouches[0].clientX;
-   handleSwipe();
-}
-
-// Function to handle swipe gesture
-function handleSwipe() {
-   const swipeThreshold = 100; // Minimum swipe distance threshold
-
-   // Calculate the difference between start and end touch positions
-   const swipeDistance = touchEndX - touchStartX;
-
-   if (swipeDistance > swipeThreshold) {
-       // Swipe right, move to the previous slide
-       previousSlide();
-   } else if (swipeDistance < -swipeThreshold) {
-       // Swipe left, move to the next slide
-       nextSlide();
-   }
-}
-
-// Add event listeners for touch events
-slider.addEventListener('touchstart', handleTouchStart);
-slider.addEventListener('touchend', handleTouchEnd);
-
-// Start the automatic slideshow
-setInterval(nextSlide, 3000); // Change slide every 3 seconds (adjust as needed)
-
-</script>
+      <script src="/javascript/post.js"></script>
 
 </body>
 </html>

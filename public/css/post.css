@@ -53,7 +53,7 @@ main p{
 
 .swiperwrapper{
     display: flex;
-    overflow-x: auto;
+    width: 100%;
 }
 
 .swiperwrapper > div {
@@ -61,6 +61,8 @@ main p{
     width: 300px;
     margin-right: 10px;
 }
+
+
 
 .swiperwrapper h3{
     font-size: 20px;
@@ -86,6 +88,13 @@ main p{
 
 .swiperwrapper a:hover{
     text-decoration: underline;
+}
+
+#prevBtn{
+display: none;
+}
+#nextBtn{
+display: none;
 }
 
 a{
@@ -119,8 +128,42 @@ footer{
         flex: 1;
     }
 
-    .swiperwrapper > div{
+    .swiperwrapper{
+        display: flex;
+        overflow: hidden;
         width: 100%;
+        position: relative;
+    }
+    
+    .swiperwrapper > div {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-right: 10px;
+        display: none;
+    }
+    .slide.active{
+        display: block;
+    }
+    #prevBtn{
+        display: block;
+        position: absolute;
+        color: black;
+        top: 150px;
+        left: 0px;
+    }
+    #nextBtn{
+        display: block;
+        position: absolute;
+        left: 320px;
+        top: 150px;
+        color: black;
+    }
+    #nextBtn:hover{
+        color: #a89b9b;
+    }
+
+    #prevBtn:hover{
+        color: #a59c9c;
     }
 }
 
