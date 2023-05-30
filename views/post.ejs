@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/post.css">
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link rel="icon" href="/t&f3.svg">
+    <link rel="icon" href="/info.png">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9QYPB859W"></script>
@@ -24,8 +24,9 @@
 </head>
 <body>
     <header>
+      <a href="/" id="home">Home <i class="fas fa-home fa-2x"></i> </a>
       <h1><%=post.tittle %></h1>
-      <a href="/">Home</a>
+      <img src="/info.png" alt="">
     </header>
     <main>
         <div>
@@ -36,7 +37,12 @@
             <p><%= post.firstParagraph %></p>
             <p><%=post.secondParagraph %></p>
             <p> <%=post.thirdParagraph%></p>
-            <p> <%=post.fourthParagraph%></p>   
+            <p> <%=post.fourthParagraph%></p>
+            <p> <%=post.fiveParagraph%></p>
+            <p> <%=post.sixParagraph%></p>  
+            <p> <%=post.sevenParagraph%></p> 
+            <p> <%=post.eigthParagraph%></p> 
+            <p> <%=post.nineParagraph%></p>
         </div>
         <h1>Recommended articles you migth like</h1>  
             <div  id="slider" class="swiperwrapper">
@@ -45,7 +51,7 @@
                         <h3><%=posts.tittle %></h3>
                         <img src="<%= posts.contentImageUrl %>" alt="Recommended posts">
                         <p><%= posts.firstParagraph %></p>
-                        <a href="/article/<%= posts._id %>">Read article here</a>
+                        <a href="/article/<%= posts._id %>/<%= posts.tittle%>">Read article here</a>
                     </div>
                     <%})%>
                      <i  id="prevBtn" class="fas fa-angle-left fa-6x"></i>

@@ -14,12 +14,23 @@ body{
 main{
     flex: 1;
     padding: 20px;
+    background-color: #ffff;
 }
 
 header{
-    background-color: #f1f1f1;
+    background-color: #070707be;
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+header img {
+    border-radius: 15%;
+    width: 5%;
 }
 
 header h1{
@@ -60,6 +71,8 @@ main p{
     flex: 0 0 auto;
     width: 300px;
     margin-right: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.308);
+    background-color: #fff5f5;
 }
 
 
@@ -106,6 +119,11 @@ a{
 
 a:hover{
     text-decoration: underline;
+    background-color: #fff;
+}
+
+#home{
+    background-color: #ffffffd8;
 }
 
 footer{
@@ -119,6 +137,14 @@ footer{
 }
 
 @media (max-width: 767px){
+    header{
+        text-align: center;
+        display: block;
+    }
+    header img {
+        border-radius: 15%;
+        width: 20%;
+    }
     header h1{
         font-size: 20px;
     }
@@ -154,7 +180,7 @@ footer{
     #nextBtn{
         display: block;
         position: absolute;
-        left: 300px;
+        left: 90%;
         top: 150px;
         color: black;
     }
@@ -168,6 +194,14 @@ footer{
 }
 
 @media (min-width: 768px) and (max-width:1023px){
+    header{
+        display: flex;
+        text-align: center;
+        display: block;
+    }
+    header img{
+        width: 20%;
+    }
     header h1 {
         font-size: 28px;
     }

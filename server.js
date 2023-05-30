@@ -46,9 +46,9 @@ app.get('/', async(req,res)=>{
 app.get('/sizweAsadmin',(req,res)=>{
     const blogs=Blog.find({});
     res.render('admin', {blogs});
-})
+});
 
-app.get('/article/:id',async(req,res)=>{
+app.get('/article/:id/:tittle',async(req,res)=>{
     try {
         const post = await Blog.findById(req.params.id);
         const allBlogs= await Blog.find({});
