@@ -26,23 +26,23 @@
     <header>
       <a href="/" id="home">Home <i class="fas fa-home fa-2x"></i> </a>
       <h1><%=post.tittle %></h1>
-      <img src="/info.png" alt="">
     </header>
     <main>
         <div>
+          <h1><%=post.tittle %></h1>
             <h4>Author:<%=post.author %></h4>
             <h5>Date: <%=post.date %></h5>
             <img src="<%= post.contentImageUrl %>" alt="content">
             <h5>The image is from<a href="<%=post.imageSrc %>"><%=post.imageSrc %></a></h5>
-            <p><%= post.firstParagraph %></p>
-            <p><%=post.secondParagraph %></p>
-            <p> <%=post.thirdParagraph%></p>
-            <p> <%=post.fourthParagraph%></p>
-            <p> <%=post.fiveParagraph%></p>
-            <p> <%=post.sixParagraph%></p>  
-            <p> <%=post.sevenParagraph%></p> 
-            <p> <%=post.eigthParagraph%></p> 
-            <p> <%=post.nineParagraph%></p>
+            <p><%- post.firstParagraph %></p>
+            <p><%-post.secondParagraph %></p>
+            <p> <%-post.thirdParagraph%></p>
+            <p> <%-post.fourthParagraph%></p>
+            <p> <%-post.fiveParagraph%></p>
+            <p> <%-post.sixParagraph%></p>  
+            <p> <%-post.sevenParagraph%></p> 
+            <p> <%-post.eigthParagraph%></p> 
+            <p> <%-post.nineParagraph%></p>
         </div>
         <h1>Recommended articles you migth like</h1>  
             <div  id="slider" class="swiperwrapper">
