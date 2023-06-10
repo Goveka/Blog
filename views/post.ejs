@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech&finance guide||<%= post.tittle%></title>
+    <title><%= post.tittle%></title>
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="icon" href="/info.png">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7226418403929317"
+     crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9QYPB859W"></script>
 <script>
@@ -32,7 +31,7 @@
             <h4>Author:<%=post.author %></h4>
             <h5>Date: <%=post.date %></h5>
             <img src="<%= post.contentImageUrl %>" alt="content">
-            <h5>The image is from<a href="<%=post.imageSrc %>"><%=post.imageSrc %></a></h5>
+            <h6>The image is from<a href="<%=post.imageSrc %>">here</a></h6>
             <p><%- post.firstParagraph %></p>
             <p><%-post.secondParagraph %></p>
             <p> <%-post.thirdParagraph%></p>
