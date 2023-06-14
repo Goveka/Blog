@@ -14,6 +14,7 @@ const blogSchema = new mongoose.Schema({
   sevenParagraph: {type: String},
   eigthParagraph: {type: String},
   nineParagraph: {type: String},
+  other: {type: String},
   date: {
     type: String,
     default: Date.now

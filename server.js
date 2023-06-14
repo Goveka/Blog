@@ -70,7 +70,7 @@ app.get('/update_blogs', async(req,res)=>{
 });
 
 app.post('/update_blog', async(req,res)=>{
-    const{imageSrc,_id,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body; 
+    const{other,imageSrc,_id,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body; 
     try {
         Blog.findOne({_id:_id}).then(object => {
             if(!object){
@@ -86,6 +86,7 @@ app.post('/update_blog', async(req,res)=>{
             object.sevenParagraph=sevenParagraph;
             object.eigthParagraph=eigthParagraph;
             object.nineParagraph=nineParagraph;
+            object.other= other;
 
            return object.save();
         })
@@ -102,7 +103,7 @@ app.post('/update_blog', async(req,res)=>{
 
 //creating new blog posts
 app.post('/newBlog', async (req,res)=>{
-    const{imageSrc,tittle,author,contentImageUrl,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body;
+    const{other,imageSrc,tittle,author,contentImageUrl,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body;
  
     //posting to the database
     try {
@@ -120,6 +121,7 @@ app.post('/newBlog', async (req,res)=>{
             sevenParagraph: sevenParagraph,
             eigthParagraph: eigthParagraph,
             nineParagraph: nineParagraph,
+            other: other,
             date: date,
             catergory:catergory
         })
