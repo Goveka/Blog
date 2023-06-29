@@ -28,7 +28,7 @@
     </header>
     <main>
         <div>
-            <h4>Author:<%=post.author %></h4>
+            <h5>Author:<%=post.author %></h5>
             <h5>Date: <%=post.date %></h5>
             <img src="<%= post.contentImageUrl %>" alt="content">
             <h6>The image is from<a href="<%=post.imageSrc %>">here</a></h6>
@@ -42,8 +42,9 @@
             <p> <%-post.eigthParagraph%></p> 
             <p> <%-post.nineParagraph%></p>
             <%-post.other %>
+            <h6>THANK YOU FOR READING</h6>
         </div>
-        <h1>Recommended articles you migth like</h1>  
+        <h1>Recommended articles</h1>  
             <div  id="slider" class="swiperwrapper">
                 <% removeCurrentPostFrmRecommended.forEach((posts)=>{%>
                     <div class="slide">
