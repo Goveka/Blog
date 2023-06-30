@@ -46,8 +46,8 @@
             <% blogPosts.forEach((post) => { %>
                 <div class="blogPost">
                     <img src="<%= post.contentImageUrl %>" alt="content">
-                    <h2><%= post.title %></h2>
-                    <a href="/article/<%= post._id %>/<%= encodeURIComponent(post.title) %>">Read article here</a>
+                    <h2><%= post.tittle %></h2>
+                    <a href="/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>">Read article here</a>
                 </div>
             <% }) %>
         </div>
