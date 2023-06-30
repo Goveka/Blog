@@ -150,6 +150,10 @@ footer{
         flex: 1;
     }
 
+    #contentImage{
+        width: 85%;
+    }
+
     .swiperwrapper{
         display: flex;
         overflow: hidden;

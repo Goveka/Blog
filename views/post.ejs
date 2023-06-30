@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%- post.firstParagraph %>">
+    <meta name="keywords" content="<%= post.tittle%>">
     <title><%= post.tittle%></title>
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -39,10 +41,10 @@
     </header>
     <main>
         <div>
-            <h5>Author:<%=post.author %></h5>
-            <h5>Date: <%=post.date %></h5>
-            <img src="<%= post.contentImageUrl %>" alt="content">
-            <h6>The image is from<a href="<%=post.imageSrc %>">here</a></h6>
+            <address>Author: <%= post.author %></address>
+            <time>Date: <%= post.date %></time>
+            <img src="<%= post.contentImageUrl %>" alt="<%=post.tittle %>">
+            <h6>The image is from <a href="<%=post.imageSrc %>">Here</a></h6>
             <p><%- post.firstParagraph %></p>
             <p><%-post.secondParagraph %></p>
             <p> <%-post.thirdParagraph%></p>
@@ -69,9 +71,8 @@
                      <i id="nextBtn" class="fas fa-angle-right fa-6x"></i>
             </div>
     </main>
-    <footer>
-        <h2 class="footer">copyright<i class="fas fa-copyright"></i> 2023 - present| chat corp| developed by sizwe| Email:sizwenkala80@gmail.com</h2>
-      </footer>
+    <h2 class="footer">© 2023 - present | TechFinace | Developed by Sizwe | Email: sizwenkala80@gmail.com</h2>
+
       <script src="/javascript/post.js"></script>
 
 </body>
