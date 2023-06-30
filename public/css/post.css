@@ -60,6 +60,8 @@ main p{
 .swiperwrapper{
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .swiperwrapper > div {
