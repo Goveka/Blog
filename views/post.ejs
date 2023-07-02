@@ -57,6 +57,14 @@
             <%-post.other %>
             <h6>THANK YOU FOR READING</h6>
         </div>
+
+        <div id="buttons">
+          <h5>Share article</h5>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-facebook fa-3x"></i><p>Facebook</p></a>
+          <a href="https://www.linkedin.com/shareArticle?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>&title=<%= post.tittle %>"><i class="fab fa-linkedin fa-3x"></i>LinkedIn</a>
+          <a href="https://twitter.com/share?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-twitter fa-3x"></i>Twitter</a> 
+        </div>
+
         <h1>Recommended articles</h1>  
             <div  id="slider" class="swiperwrapper">
                 <% removeCurrentPostFrmRecommended.forEach((posts)=>{%>
@@ -70,6 +78,7 @@
                      <i  id="prevBtn" class="fas fa-angle-left fa-6x"></i>
                      <i id="nextBtn" class="fas fa-angle-right fa-6x"></i>
             </div>
+
     </main>
     <h2 class="footer">© 2023 - present | TechFinace | Developed by Sizwe | Email: sizwenkala80@gmail.com</h2>
 
