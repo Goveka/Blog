@@ -60,10 +60,22 @@ app.get('/article/:id/:tittle',async(req,res)=>{
     }
 });
 
+// The search function
+app.get('/search/:searchString', async(req,res)=>{
+    try {
+        const searchedBlog= req.params.searchString;
+       const post= await Blog.find({});
+       const searchedBlogs= post.filter(searched => searched.tittle.includes(searchedBlog));
+        res.render('search', {searchedBlogs, searchedBlog});
+    } catch (error) {
+        res.status(500).send({error: error.message});
+    }
+})
+
 app.get('/update_blogs', async(req,res)=>{
     try {
         const blogs= await Blog.find({});
-        res.render('updateBlogs', {blogs})
+        res.render('updateBlogs', {blogs});
     } catch (error) {
         res.status(500).send({error: error.message})
     }
