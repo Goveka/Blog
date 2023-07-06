@@ -146,6 +146,10 @@ footer{
     font-size: 12px;
 }
 
+h6{
+    margin-bottom: 5%;
+}
+
 @media (max-width: 767px){
     header{
         text-align: center;

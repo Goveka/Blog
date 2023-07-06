@@ -65,7 +65,7 @@ app.get('/search/:searchString', async(req,res)=>{
     try {
         const searchedBlog= req.params.searchString;
        const post= await Blog.find({});
-       const searchedBlogs= post.filter(searched => searched.tittle.includes(searchedBlog));
+       const searchedBlogs= post.filter(searched => searched.tittle.toLowerCase().includes(searchedBlog) || searched.firstParagraph.toLowerCase().includes(searchedBlog));
         res.render('search', {searchedBlogs, searchedBlog});
     } catch (error) {
         res.status(500).send({error: error.message});
@@ -115,7 +115,7 @@ app.post('/update_blog', async(req,res)=>{
 
 //creating new blog posts
 app.post('/newBlog', async (req,res)=>{
-    const{other,imageSrc,tittle,author,contentImageUrl,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body;
+    const{other,imageSrc,tittle,author,contentImageUrl,firstParagraph, date, catergory}= req.body;
  
     //posting to the database
     try {
@@ -125,14 +125,6 @@ app.post('/newBlog', async (req,res)=>{
             imageSrc: imageSrc,
             contentImageUrl:contentImageUrl,
             firstParagraph:firstParagraph,
-            secondParagraph: secondParagraph,
-            thirdParagraph: thirdParagraph,
-            fourthParagraph: fourthParagraph,
-            fiveParagraph: fiveParagraph,
-            sixParagraph: sixParagraph,
-            sevenParagraph: sevenParagraph,
-            eigthParagraph: eigthParagraph,
-            nineParagraph: nineParagraph,
             other: other,
             date: date,
             catergory:catergory
