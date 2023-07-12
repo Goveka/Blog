@@ -142,6 +142,18 @@ footer{
     color: blue;
     text-align: center;
 }
+
+footer  a {
+    display: inline-block;
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
 .footer{
     font-size: 12px;
 }
