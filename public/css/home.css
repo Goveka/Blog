@@ -119,16 +119,17 @@ main{
 
 
 footer{
-    background-color: #161616;
+    background-color: #000000c7;
     padding: 10px;
-    color: #808fe2;
+    color: #fff;
+    font-weight: bolder;
     text-align: center;
 }
 
 footer  a {
     display: inline-block;
     font-size: 14px;
-    color: blue;
+    color: #0815cad8;
     text-decoration: none;
 }
 

@@ -137,16 +137,17 @@ a:hover{
 }
 
 footer{
-    background-color: #0f0e0e;
+    background-color: #000000c7;
     padding: 10px;
-    color: blue;
+    color: #fff;
+    font-weight: bolder;
     text-align: center;
 }
 
 footer  a {
     display: inline-block;
     font-size: 14px;
-    color: blue;
+    color: #0815cad8;
     text-decoration: none;
 }
 
