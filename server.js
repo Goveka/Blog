@@ -3,8 +3,8 @@ const app= express();
 const mongoose= require("mongoose");
 const bodyParser= require("body-parser");
 const jwt= require("jsonwebtoken");
-const url='mongodb://localhost:27017/test'
-//const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//const url='mongodb://localhost:27017/test'
+const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const ejs= require("ejs");
 const port=process.env.PORT || 2009
 
