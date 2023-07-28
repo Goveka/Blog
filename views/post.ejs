@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%- post.firstParagraph %>">
-    <meta name="keywords" content="<%= post.tittle%>,tech, finance, guide, blog, articles,AI,Artificial Intelligence">
+    <meta name="keywords" content="<%= post.tittle%>,tech, finance, guide, blog, articles,AI,Artificial Intelligence,money,investing, <%=post.searchKeywords%>">
     <title><%= post.tittle%></title>
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -41,42 +41,45 @@
       <h1><%=post.tittle %></h1>
     </header>
     <main>
-        <div>
+        <div id="main-content">
             <address>Author: <%= post.author %></address>
             <time>Date: <%= post.date %></time>
             <img src="<%= post.contentImageUrl %>" alt="<%=post.tittle %>" id="contentImage">
-            <h6>The image is from <a rel="nofollow" href="<%=post.imageSrc %>">Here</a></h6>
+            <h6> image source <a rel="nofollow" href="<%=post.imageSrc %>">Here</a></h6>
             <p><%- post.firstParagraph %></p>
             <%-post.other %>
             <h6>THANK YOU FOR READING</h6>
         </div>
 
-        <div id="buttons">
+        <div id="share-buttons">
           <h5>Share article</h5>
           <a href="https://www.facebook.com/sharer/sharer.php?u=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-facebook fa-3x"></i><p>Facebook</p></a>
           <a href="https://www.linkedin.com/shareArticle?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>&title=<%= post.tittle %>"><i class="fab fa-linkedin fa-3x"></i>LinkedIn</a>
           <a href="https://twitter.com/share?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-twitter fa-3x"></i>Twitter</a> 
         </div>
 
+        <div> 
         <h1>Recommended articles</h1>  
-            <div  id="slider" class="swiperwrapper">
-                <% removeCurrentPostFrmRecommended.forEach((posts)=>{%>
-                    <div class="slide">
-                        <h3><%=posts.tittle %></h3>
-                        <img src="<%= posts.contentImageUrl %>" alt="Recommended posts">
-                        <p><%= posts.firstParagraph %></p>
-                        <a href="/article/<%= posts._id %>/<%= posts.tittle%>">Read article here</a>
-                    </div>
-                    <%})%>
-                     <i  id="prevBtn" class="fas fa-angle-left fa-6x"></i>
-                     <i id="nextBtn" class="fas fa-angle-right fa-6x"></i>
-            </div>
-
+        <div  id="slider" class="swiperwrapper">
+            <% removeCurrentPostFrmRecommended.forEach((posts)=>{%>
+                <div class="slide">
+                    <h3><%=posts.tittle %></h3>
+                    <img src="<%= posts.contentImageUrl %>" alt="Recommended posts">
+                    <p><%= posts.firstParagraph %></p>
+                    <a href="/article/<%= posts._id %>/<%= posts.tittle%>">Read article here</a>
+                </div>
+                <%})%>
+                 <i  id="prevBtn" class="fas fa-angle-left fa-6x"></i>
+                 <i id="nextBtn" class="fas fa-angle-right fa-6x"></i>
+        </div>
+        </div>
     </main>
-    <h2 class="footer">© 2023 - present | TechFinace | Developed by Sizwe | Email: sizwenkala80@gmail.com</h2>||
-    <a rel="nofollow" href="https://www.termsfeed.com/live/90c022a1-55a6-4cec-861b-c6c0378eda85">Terms and conditions</a>||
-    <a rel="nofollow" href="https://www.termsfeed.com/live/df75ee87-4efd-4c4d-b30c-be36f3a58ba8">Privacy policy</a>||
-    <a rel="nofollow" href="https://www.termsfeed.com/live/0c68b64f-26af-4b41-a672-ceae438ea022">Cookie policy</a>
+    <footer>
+      <h6 class="footer">© 2023 - present | TechFinace | Developed by Sizwe | Email: sizwenkala80@gmail.com</h6>||
+      <a rel="nofollow" href="https://www.termsfeed.com/live/90c022a1-55a6-4cec-861b-c6c0378eda85">Terms and conditions</a>||
+      <a rel="nofollow" href="https://www.termsfeed.com/live/df75ee87-4efd-4c4d-b30c-be36f3a58ba8">Privacy policy</a>||
+      <a rel="nofollow" href="https://www.termsfeed.com/live/0c68b64f-26af-4b41-a672-ceae438ea022">Cookie policy</a>
+    </footer>
 
       <script src="/javascript/post.js"></script>
 

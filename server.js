@@ -3,8 +3,8 @@ const app= express();
 const mongoose= require("mongoose");
 const bodyParser= require("body-parser");
 const jwt= require("jsonwebtoken");
-//const url='mongodb://localhost:27017/test'
-const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const url='mongodb://localhost:27017/test'
+//const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const ejs= require("ejs");
 const port=process.env.PORT || 2009
 
@@ -82,7 +82,7 @@ app.get('/update_blogs', async(req,res)=>{
 });
 
 app.post('/update_blog', async(req,res)=>{
-    const{other,imageSrc,_id,firstParagraph,secondParagraph,thirdParagraph,fourthParagraph,fiveParagraph,sixParagraph,sevenParagraph,eigthParagraph,nineParagraph, date, catergory}= req.body; 
+    const{other,imageSrc,_id,firstParagraph,searchKeywords}= req.body; 
     try {
         Blog.findOne({_id:_id}).then(object => {
             if(!object){
@@ -90,14 +90,7 @@ app.post('/update_blog', async(req,res)=>{
             }
             object.imageSrc=imageSrc;
             object.firstParagraph=firstParagraph;
-            object.secondParagraph=secondParagraph;
-            object.thirdParagraph=thirdParagraph;
-            object.fourthParagraph=fourthParagraph;
-            object.fiveParagraph=fiveParagraph;
-            object.sixParagraph=sixParagraph;
-            object.sevenParagraph=sevenParagraph;
-            object.eigthParagraph=eigthParagraph;
-            object.nineParagraph=nineParagraph;
+            object.searchKeywords=searchKeywords
             object.other= other;
 
            return object.save();
@@ -115,7 +108,7 @@ app.post('/update_blog', async(req,res)=>{
 
 //creating new blog posts
 app.post('/newBlog', async (req,res)=>{
-    const{other,imageSrc,tittle,author,contentImageUrl,firstParagraph, date, catergory}= req.body;
+    const{other,imageSrc,tittle,author,contentImageUrl,firstParagraph, date, catergory,searchKeywords}= req.body;
  
     //posting to the database
     try {
@@ -125,6 +118,7 @@ app.post('/newBlog', async (req,res)=>{
             imageSrc: imageSrc,
             contentImageUrl:contentImageUrl,
             firstParagraph:firstParagraph,
+            searchKeywords,
             other: other,
             date: date,
             catergory:catergory
