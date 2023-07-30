@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%- post.firstParagraph %>">
-    <meta name="keywords" content="<%= post.tittle%>,tech, finance, guide, blog, articles,AI,Artificial Intelligence,money,investing, <%=post.searchKeywords%>">
+    <meta name="keywords" content="<%= post.tittle%>,<%=post.searchKeywords%>">
     <title><%= post.tittle%></title>
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -50,15 +50,13 @@
             <%-post.other %>
             <h6>THANK YOU FOR READING</h6>
         </div>
-
         <div id="share-buttons">
           <h5>Share article</h5>
           <a href="https://www.facebook.com/sharer/sharer.php?u=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-facebook fa-3x"></i><p>Facebook</p></a>
           <a href="https://www.linkedin.com/shareArticle?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>&title=<%= post.tittle %>"><i class="fab fa-linkedin fa-3x"></i>LinkedIn</a>
           <a href="https://twitter.com/share?url=techfinace.com/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>"><i class="fab fa-twitter fa-3x"></i>Twitter</a> 
         </div>
-
-        <div> 
+        <div id="Recommended"> 
         <h1>Recommended articles</h1>  
         <div  id="slider" class="swiperwrapper">
             <% removeCurrentPostFrmRecommended.forEach((posts)=>{%>
