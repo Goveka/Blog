@@ -24,6 +24,10 @@
                 <label for="imgsrc">The source of the image</label>
                 <input type="text" name="imageSrc" id="imgsrc" required="true" value="<%=blog.imageSrc %>">
 
+                <label for="contentImage">content image</label>
+                <input type="file"  accept="image/*" id="addImage">
+                <input type="text" id="contentImage" name="contentImageUrl" placeholder="add image to generate url..." required="true"  value="<%=blog.contentImageUrl %>">
+
                 <label for="searchKeywords">search Keywords</label>
                 <input type="text" name="searchKeywords" id="searchKeywords" required="true" placeholder="search engine keywords for better ranking..." value="<%=blog.searchKeywords%>">
 
@@ -39,7 +43,7 @@
         </div>
         <%})%>
 </main>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./javascript/update.js"></script>
 </body>
 </html>

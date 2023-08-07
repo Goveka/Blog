@@ -82,13 +82,14 @@ app.get('/update_blogs', async(req,res)=>{
 });
 
 app.post('/update_blog', async(req,res)=>{
-    const{other,imageSrc,_id,firstParagraph,searchKeywords}= req.body; 
+    const{other,imageSrc,_id,firstParagraph,searchKeywords,contentImageUrl}= req.body; 
     try {
         Blog.findOne({_id:_id}).then(object => {
             if(!object){
                 return res.status(404).send("object not found");
             }
             object.imageSrc=imageSrc;
+            object.contentImageUrl=contentImageUrl;
             object.firstParagraph=firstParagraph;
             object.searchKeywords=searchKeywords
             object.other= other;
