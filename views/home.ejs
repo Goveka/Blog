@@ -49,6 +49,7 @@
                 <div class="blogPost">
                     <img src="<%= post.contentImageUrl %>" alt="content">
                     <h2><%= post.tittle %></h2>
+                    <p><%=post.firstParagraph %></p>
                     <a href="/article/<%= post._id %>/<%= encodeURIComponent(post.tittle) %>">Read article here</a>
                 </div>
             <% }) %>
