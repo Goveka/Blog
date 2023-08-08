@@ -4,11 +4,13 @@ const addImg=document.getElementById('addImage');
 addImg.addEventListener('change', addImage)
 async function addImage(){
 const addImageInput= document.getElementById("addImage");
+console.log(addImageInput)
 const file= addImageInput.files[0];
 
  // Create a new form data object
  const formData = new FormData();
  formData.append('image', file);
+ console.log(formData)
 
  // Use Axios to upload the image to ImgBB
  const response = await axios.post('https://api.imgbb.com/1/upload', formData, {
@@ -22,6 +24,7 @@ const file= addImageInput.files[0];
 
  // Get the image URL from the ImgBB API response
  const imgSrcInput= document.getElementById("contentImage");
+ console.log(imgSrcInput);
  const imageUrl = response.data.data.url;
  imgSrcInput.value=imageUrl;
  alert("added")
