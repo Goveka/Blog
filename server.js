@@ -81,6 +81,10 @@ app.get('/update_blogs', async(req,res)=>{
     }
 });
 
+app.get('/about', (req,res)=>{
+    res.render('about', {});
+});
+
 app.post('/update_blog', async(req,res)=>{
     const{other,imageSrc,_id,firstParagraph,searchKeywords,contentImageUrl}= req.body; 
     try {
