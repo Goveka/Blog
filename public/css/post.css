@@ -35,7 +35,8 @@ header h1{
 
 main div{
     margin-bottom: 0px;
-    padding: 100px;
+    padding-left: 80px;
+    padding-right: 100px;
 }
 
 main h4{
@@ -54,6 +55,10 @@ main img {
     margin-bottom: 10px;
 }
 
+iframe{
+    margin-left: 20%;
+}
+
 main p{
     margin-bottom: 10px;
 }
@@ -62,8 +67,6 @@ main p{
     display: inline-flex;
     gap: 10px;
     align-items: center;
-    position: relative;
-    top: -210px;
 }
 
 #share-buttons a{
@@ -71,10 +74,6 @@ main p{
     margin-right: 10px;
 }
 
-#Recommended{
-    position: relative;
-    top: -380px;
-}
 
 .swiperwrapper{
     display: grid;
@@ -194,6 +193,11 @@ h6{
         width: 100%;
     }
 
+    iframe{
+        max-width: 100%;
+        margin: 0;
+    }
+
     #share-buttons{
         display: inline-flex;
         gap: 10px;
@@ -267,6 +271,9 @@ h6{
     }
     main div{
         padding: 10px;
+    }
+    iframe{
+        margin: 0;
     }
     #share-buttons{
         display: inline-flex;
