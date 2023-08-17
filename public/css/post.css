@@ -74,6 +74,11 @@ main p{
     margin-right: 10px;
 }
 
+.fa-reddit{
+    background-color: #ff3806;
+    color: #fff;
+}
+
 
 .swiperwrapper{
     display: grid;
@@ -199,11 +204,13 @@ h6{
     }
 
     #share-buttons{
-        display: inline-flex;
-        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
         align-items: center;
         position: relative;
         top: 0px;
+        max-width: 100%;
     }
 
     #Recommended{
