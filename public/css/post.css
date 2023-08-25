@@ -75,7 +75,12 @@ main p{
 }
 
 .fa-reddit{
-    background-color: #ff3806;
+    background-color: #fff;
+    color: #ff3806;
+}
+
+.fa-quora{
+    background-color: rgb(248, 16, 16);
     color: #fff;
 }
 
