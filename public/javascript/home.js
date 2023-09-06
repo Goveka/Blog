@@ -43,3 +43,25 @@ searchBtn.addEventListener('click', (e)=>{
     }
 
 });
+
+
+// Create an Intersection Observer
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.getAttribute('data-src'); // Get the actual image source
+        img.setAttribute('src', src); // Set the src attribute to start loading the image
+        observer.unobserve(img); // Unobserve the image once it's loaded
+      }
+    });
+  });
+  
+  // Select all images with the 'lazy' attribute
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  // Initialize the Intersection Observer for lazy loading
+  lazyImages.forEach((img) => {
+    observer.observe(img);
+  });
+  
