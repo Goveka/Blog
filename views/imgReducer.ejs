@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image perfector</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/imageReducer.css">
+    <link rel="icon" href="info.png">
+</head>
+<body>
+    <header>
+        <h1>Techfinace|| Image perfector</h1>
+        <img src="info.png" alt="logo">
+        <h2>Reduce your image size's while maintaining picture quality</h2>
+    </header>
+    <main>
+        <div id="image-input">
+            <div>
+                <input type="file"  accept="image/*" id="addImages">
+                <label for="images" id="input-label">add your picture to be resized</label>
+            </div>
+            <div id="selectedImageInfo">
+                <h4 id="actual-img"></h4>
+                <img src="" alt="" id="selectedImage">
+                <p id="img-name"></p>
+                <p id="imgSize"></p>    
+            </div>
+            <div id="procesedImgHolder">
+                <h4 id="compressed-img"></h4>
+                <img src="" alt="" id="procesedImg">
+                <p id="processed-img-name"></p>
+                <p id="processed-imgSize"></p>
+                <a href="" download id="download">Download</a>
+            </div>
+        </div>
+        <div id="sized-reduced-imgs">
+
+        </div>
+    </main>
+
+    <script src="/javascript/imgReducer.js"></script>
+</body>
+</html>

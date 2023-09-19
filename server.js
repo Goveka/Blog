@@ -151,4 +151,9 @@ app.delete('/remove_blog/:id', async(req,res)=>{
     }
 })
 
+// rendering the image reducer to the front end
+app.get('/image-perfector',(req,res)=>{
+    res.render('imgReducer', {})
+})
+
 app.listen(port, ()=> console.log(`app is running on port ${port}`))
