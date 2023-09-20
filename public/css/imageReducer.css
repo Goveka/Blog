@@ -10,6 +10,21 @@
     gap: 20px;
 }
 
+#sized-reduced-imgs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+#sized-reduced-imgs > div{
+    width: 300px;
+}
+
+
+#sized-reduced-imgs > div img{
+    max-width: 100%;
+}
+
 #image-input input[type="file"]{
     display: none;
     }
@@ -75,4 +90,49 @@ download:hover{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+
+#message{
+    display: none;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    #image-input{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
+    }
+    
+    #sized-reduced-imgs{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }  
+    
+    #sized-reduced-imgs > div{
+        width: 100%;
+    }
+
+    #selectedImageInfo{
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    #image-input{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
+    }
+    
+    #sized-reduced-imgs{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }  
+    
+    #sized-reduced-imgs > div{
+        width: 100%;
+    }
+
+    #selectedImageInfo{
+        width: 80%;
+    }
 }

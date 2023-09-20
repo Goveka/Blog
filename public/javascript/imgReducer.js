@@ -53,8 +53,13 @@ customFileInput.addEventListener("change", displayImageAndSize)
         download.style.display="inline-block";
         download.href=processed_ImgUrl;
 
-        //saving the image object in local storage
-        saveToLocalStrorage(resizedFile);
+        const sized_reduced_imgs=document.getElementById('sized-reduced-imgs');
+        const message=document.getElementById('message');
+        message.style.display="block"
+        const div= document.createElement('div');
+        div.innerHTML=`<img src="${processed_ImgUrl}"><p>${resizedFile.name}</p><p>Image size:${procesed_img_size}KB
+        <a href="${processed_ImgUrl}" download class="download">Download</a>`;
+        sized_reduced_imgs.appendChild(div)
     }else{
         selectedImage.src= "";
         imageSize.textContent= ""
@@ -62,19 +67,6 @@ customFileInput.addEventListener("change", displayImageAndSize)
 
 }
 
-//function to save image data to local strorage
-function saveToLocalStrorage(file){
-    const reader= new FileReader();
-
-    reader.onload=(event)=>{
-        const imageData = event.target.result;
-
-        //save the base64-encoded image data to local storage
-        localStorage.setItem('resizedImage', imageData);
-    };
-
-    reader.readAsDataURL(file)
-}
 
 // function to resize the image using HTML canvas
 function resizeImage(file, maxWidth, maxHeight) {
@@ -87,15 +79,16 @@ function resizeImage(file, maxWidth, maxHeight) {
       let width= img.width;
       let height= img.height;
 
-      if(width > height){
+      if(width > maxWidth || height > maxHeight){
+        const aspectRatio= width / height;
         if(width > maxWidth){
-          height *= maxWidth / width;
           width= maxWidth;
+          height = maxWidth / aspectRatio;
         }
       }else{
         if(height > maxHeight){
-          width *= maxHeight / height;
           height = maxHeight;
+          width = maxHeight / aspectRatio;
         }
       }
 
@@ -112,21 +105,3 @@ function resizeImage(file, maxWidth, maxHeight) {
   });
 };
 
-//retrieving images saved in local storage and rendering them
-const retrievedJSON= localStorage.getItem("resizedImage");
-console.log(retrievedJSON)
-
-if(retrievedJSON != null){
-    retrievedJSON.forEach(element => {
-        let sized_reduced_imgs= document.getElementById('sized-reduced-imgs');
-        const div=document.createElement('div');
-        const processed_ImgUrl= URL.createObjectURL(element);
-        const procesed_img_size= (element.size / 1024).toFixed(2);
-    
-        div.innerHTML=`<img src=${processed_ImgUrl}> <p>${element.name}</p><p>Image size:${procesed_img_size}KB
-        <a href=${processed_ImgUrl} download class="download">Download</a>`;
-    
-        sized_reduced_imgs.appendChild(div);
-        
-    });
-}
