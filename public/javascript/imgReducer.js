@@ -31,7 +31,7 @@ customFileInput.addEventListener("change", displayImageAndSize)
 
         //setting the image size, and rendering it to the user
         const imagesize= (file.size / 1024).toFixed(2);
-        imageSize.textContent= `Image Size: ${imagesize} KB`;
+        imageSize.innerHTML= `<strong>Image Size:</strong> ${imagesize} KB`;
 
         //rendering the image name
         imageName.textContent= file.name;
@@ -44,7 +44,7 @@ customFileInput.addEventListener("change", displayImageAndSize)
 
          //setting the compressed img size, and rendering it to the user       
         const procesed_img_size= (resizedFile.size / 1024).toFixed(2);
-        procesedImgSize.textContent= `New Image size: ${procesed_img_size} KB`;
+        procesedImgSize.innerHTML= `<strong>New Image size:</strong> ${procesed_img_size} KB`;
 
         // rendering compressed image name
         processedImgName.textContent= resizedFile.name; 
@@ -57,15 +57,70 @@ customFileInput.addEventListener("change", displayImageAndSize)
         const message=document.getElementById('message');
         message.style.display="block"
         const div= document.createElement('div');
+        div.className="savedImgs"
         div.innerHTML=`<img src="${processed_ImgUrl}"><p>${resizedFile.name}</p><p>Image size:${procesed_img_size}KB
         <a href="${processed_ImgUrl}" download class="download">Download</a>`;
-        sized_reduced_imgs.appendChild(div)
+        sized_reduced_imgs.insertBefore(div, sized_reduced_imgs.firstChild);
+
+        //uploading the img the imgBB and saving the returned img  Url
+        const formData= new FormData();
+        formData.append('image', resizedFile);
+
+        //using axios to upload the image to imgBB
+        const response = await axios.post('https://api.imgbb.com/1/upload', formData, {
+          headers: {
+            'content-type': 'multipart/form-data'
+          },
+          params: {
+            key: '6471b35ba7d32dc79980a3867fd232d5'
+          }
+        });
+
+        //saving the returned img url to local storage
+        const returnedUrl=response.data.data.url;
+        let processed_images_in_localStorage = JSON.parse(localStorage.getItem('resizedImages')) || [];
+        processed_images_in_localStorage.push(returnedUrl);
+        localStorage.setItem('resizedImages', JSON.stringify(processed_images_in_localStorage));
+        const number_of_images=document.getElementById('number_of_images');
+        let numberOfImages=processed_images_in_localStorage.length;
+        number_of_images.textContent=`Number of images:${numberOfImages}`;
+        numberOfImages.style.display="block"
+
+        if(processed_images_in_localStorage.length > 50){
+          processed_images_in_localStorage.shift()
+        }
+
+
     }else{
         selectedImage.src= "";
         imageSize.textContent= ""
     }
 
-}
+};
+//getting processed images from local storage and rendering when loading the page
+
+const processed_images_in_localStorage=JSON.parse(localStorage.getItem('resizedImages')) || [];
+processed_images_in_localStorage.reverse();
+
+processed_images_in_localStorage.forEach(element => {
+  const sized_reduced_imgs=document.getElementById('sized-reduced-imgs');
+  const div= document.createElement('div');
+  //creating an image blob for download
+  const imageURL=element;
+  const blob= new Blob([imageURL]);
+  const url= URL.createObjectURL(blob);
+  //creating an anchor 
+  const anchor=document.createElement('a');
+  anchor.className="download";
+  anchor.href=url;
+  anchor.download= imageURL;
+  anchor.textContent="Download";
+  div.className="savedImgs"
+  div.innerHTML=`<img src="${element}"><p>Image size:${blob.size}KB `;
+  div.appendChild(anchor);
+  sized_reduced_imgs.appendChild(div);
+
+});
 
 
 // function to resize the image using HTML canvas

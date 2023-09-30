@@ -14,7 +14,7 @@ body{
 main{
     flex: 1;
     padding: 20px;
-    background-color: #ffff;
+    background-color: #f1eded;
 }
 
 header{
@@ -142,11 +142,11 @@ a{
 
 a:hover{
     text-decoration: underline;
-    background-color: #fff;
+    background-color: #ffffff00;
 }
 
 #home{
-    background-color: #ffffffd8;
+    background-color: #ffffff96;
     color: #0f0e0e;
 }
 

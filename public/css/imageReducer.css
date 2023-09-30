@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+main{
+ padding-left: 5%;
+ background-color: #e9e1e1;
+}
+
+i{
+    color: #0056b3;
+    background-color: #e9e1e1;
+}
+
+a{
+    display: inline-block;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    background-color: #ffffff00;
+}
+
+a i{
+    color: #007bff;
+    background-color: #0057b300;
+}
+
 #image-input{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -13,23 +40,28 @@
 #sized-reduced-imgs{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-#sized-reduced-imgs > div{
-    width: 300px;
+    gap: 50px;
 }
 
 
-#sized-reduced-imgs > div img{
-    max-width: 100%;
+.savedImgs img{
+    width: 100%;
 }
 
-#image-input input[type="file"]{
+#input p{
+    width: 80%;
+    font-size: 20px;
+    background-color: rgba(228, 226, 102, 0.575);
+    margin-bottom: 2%;
+    box-shadow: 2px 4px 6px #000000;
+
+}
+
+#input input[type="file"]{
     display: none;
     }
 
-#image-input label{
+#input label{
     display: inline-block;
     padding: 10px 20px;
     background-color: #007bff;
@@ -37,6 +69,10 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+}
+
+#input label:hover{
+    background-color: #0056b3;
 }
 
 #download{
@@ -60,7 +96,7 @@
 }
 
 
-download:hover{
+.download:hover{
     background-color: #0056b3;
 }
 
@@ -68,21 +104,15 @@ download:hover{
     background-color: #0056b3;
 }
 
-#selectedImageInfo{
-    width: 300px;
-}
 
 
 #selectedImageInfo img{
-    max-width: 100%;
+    width: 100%;
 }
 
-#procesedImgHolder{
-    width: 300px;
-}
 
 #procesedImgHolder img{
-    max-width: 100%;
+    width: 100%;
 }
 
 
@@ -91,16 +121,35 @@ download:hover{
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+strong{
+    color: red;
+}
 
 #message{
     display: none;
     text-align: center;
 }
 
+#nymber_of_images{
+    display: none;
+}
+
 @media (max-width: 767px) {
+
+    main{
+        padding: 2px;
+    }
+
+    #input p{
+        width: 100%;
+        font-size: 16px;
+        background-color: rgba(228, 226, 102, 0.575);
+        margin-bottom: 2%;
+    }
+
     #image-input{
-        grid-template-columns: repeat(1, 1fr);
-        gap: 2px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
     }
     
     #sized-reduced-imgs{
@@ -108,16 +157,17 @@ download:hover{
         gap: 2px;
     }  
     
-    #sized-reduced-imgs > div{
-        width: 100%;
-    }
-
     #selectedImageInfo{
         width: 100%;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px){
+
+    main{
+        padding: 12px;
+    }
+
     #image-input{
         grid-template-columns: repeat(1, 1fr);
         gap: 2px;
@@ -128,10 +178,6 @@ download:hover{
         gap: 2px;
     }  
     
-    #sized-reduced-imgs > div{
-        width: 100%;
-    }
-
     #selectedImageInfo{
         width: 80%;
     }

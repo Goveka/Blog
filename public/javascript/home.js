@@ -1,5 +1,4 @@
 const screenWidth= window.innerWidth;
-console.log(screenWidth)
 if(screenWidth < 1023){
     document.addEventListener("DOMContentLoaded",()=>{
          document.querySelectorAll(".limitedParagraph").forEach((paragraph)=>{

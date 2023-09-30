@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/imageReducer.css">
     <link rel="icon" href="info.png">
+    <meta name="description" content="Reduce your picture size while maintaining picture quality for Free and unlimited">
+    <meta name="keywords" content="image reducer,picture reducer, reduce picture size while maintaining picture quality">
         <!-- Additional Google Analytics for domain name -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VH93864DQ1"></script>
         <script>
@@ -23,16 +25,25 @@ crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <h1>Techfinace|| Image perfector</h1>
+        <a href="/" id="home">Home <i class="fas fa-home fa-2x"></i> </a>
+        <h1>Image perfector</h1>
         <img src="info.png" alt="logo">
         <h3>Reduce your image size's while maintaining picture quality</h3>
     </header>
     <main>
+        <div id="input">
+            <p>!!
+            Please note that you can only process one image at a time. additionally, we can only save
+            up to 50 reduced images. if you exceed this limit, the earliest saved images will be automatically
+            deleted to make room for new ones.The tool is designed to work with various image types
+            commonly supported by HTML5,including JPEG,PNG, and GIF.NOTE that the resizing process
+            doesn't optimise the colour palette for GIF images. While the tool should work
+            for other images formats like BMP or TIFF,it may not fully optimise or convert them. Thank you for understanding!
+            </p>
+            <input type="file"  accept="image/*" id="addImages">
+            <label for="images" id="input-label">add your picture to be resized<i class="fas fa-image"></i></label>
+        </div>
         <div id="image-input">
-            <div>
-                <input type="file"  accept="image/*" id="addImages">
-                <label for="images" id="input-label">add your picture to be resized</label>
-            </div>
             <div id="selectedImageInfo">
                 <h4 id="actual-img"></h4>
                 <img src="" alt="" id="selectedImage">
@@ -44,12 +55,15 @@ crossorigin="anonymous"></script>
                 <img src="" alt="" id="procesedImg">
                 <p id="processed-img-name"></p>
                 <p id="processed-imgSize"></p>
-                <a href="" download id="download">Download</a>
+                <a href="" download id="download">Download <i class="fas fa-dowload"></i> </a>
             </div>
         </div>
-        <h3 id="message">Your compressed Images</h3>
+        <div id="message">
+            <h3>Your compressed Images</h3>
+            <p>(all your compressed images will appear here) <i class="fas fa-arrow-circle-down"></i> </p>
+        </div>
+        <h3 id="number_of_images"></h3>
         <div id="sized-reduced-imgs">
-
         </div>
     </main>
 
@@ -60,7 +74,7 @@ crossorigin="anonymous"></script>
         <a rel="nofollow" href="https://www.termsfeed.com/live/df75ee87-4efd-4c4d-b30c-be36f3a58ba8">Privacy policy</a>||
         <a rel="nofollow" href="https://www.termsfeed.com/live/0c68b64f-26af-4b41-a672-ceae438ea022">Cookie policy</a>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/javascript/imgReducer.js"></script>
 </body>
 </html>

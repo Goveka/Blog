@@ -25,7 +25,6 @@ const file= addImageInput.files[0];
 
  // Get the image URL from the ImgBB API response
  const imgSrcInput= document.getElementById("contentImage");
- console.log(imgSrcInput);
  const imageUrl = response.data.data.url;
  imgSrcInput.value=imageUrl;
  alert("added")
