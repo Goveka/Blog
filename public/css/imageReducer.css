@@ -31,6 +31,10 @@ a i{
     background-color: #0057b300;
 }
 
+h4{
+    font-weight: bolder;
+}
+
 #image-input{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
