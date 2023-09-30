@@ -140,6 +140,10 @@ strong{
         padding: 2px;
     }
 
+    #input{
+        margin-bottom: 5%;
+    }
+
     #input p{
         width: 100%;
         font-size: 16px;
@@ -150,7 +154,6 @@ strong{
     #image-input{
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
-        width: 100%;
     }
     
     #sized-reduced-imgs{
@@ -159,12 +162,12 @@ strong{
     }  
     
     #selectedImageInfo img{
-        width: 100%;
+        max-width: 100%;
     }
     
     
     #procesedImgHolder img{
-        width: 100%;
+        max-width: 100%;
     }
 }
 

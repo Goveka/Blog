@@ -60,7 +60,6 @@ customFileInput.addEventListener("change", displayImageAndSize)
         div.className="savedImgs"
         div.innerHTML=`<img src="${processed_ImgUrl}"><p>${resizedFile.name}</p><p>Image size:${procesed_img_size}KB
         <a href="${processed_ImgUrl}" download class="download">Download</a>`;
-        sized_reduced_imgs.insertBefore(div, sized_reduced_imgs.firstChild);
 
         //uploading the img the imgBB and saving the returned img  Url
         const formData= new FormData();
