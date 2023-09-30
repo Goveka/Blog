@@ -152,6 +152,7 @@ strong{
     }
 
     #image-input{
+        max-width: 100%;
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
     }
@@ -163,11 +164,13 @@ strong{
     
     #selectedImageInfo img{
         max-width: 100%;
+        height: auto;
     }
     
     
     #procesedImgHolder img{
         max-width: 100%;
+        height: auto;
     }
 }
 
