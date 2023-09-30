@@ -158,16 +158,13 @@ strong{
         gap: 2px;
     }  
     
-    #selectedImageInfo{
-        width: 100%;
-    }
     #selectedImageInfo img{
-        width: 40%;
+        width: 100%;
     }
     
     
     #procesedImgHolder img{
-        width: 40%;
+        width: 100%;
     }
 }
 
