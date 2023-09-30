@@ -150,6 +150,7 @@ strong{
     #image-input{
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
+        max-width: 100%;
     }
     
     #sized-reduced-imgs{
