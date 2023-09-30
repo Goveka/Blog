@@ -150,7 +150,7 @@ strong{
     #image-input{
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
-        max-width: 100%;
+        width: 100%;
     }
     
     #sized-reduced-imgs{
@@ -160,6 +160,14 @@ strong{
     
     #selectedImageInfo{
         width: 100%;
+    }
+    #selectedImageInfo img{
+        width: 40%;
+    }
+    
+    
+    #procesedImgHolder img{
+        width: 40%;
     }
 }
 
