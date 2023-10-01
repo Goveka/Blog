@@ -3,6 +3,7 @@ const app= express();
 const mongoose= require("mongoose");
 const bodyParser= require("body-parser");
 const jwt= require("jsonwebtoken");
+const axios = require('axios');
 //const url='mongodb://localhost:27017/test'
 const url='mongodb+srv://Sizwenkala:sizwe123@cluster0.fejtt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const ejs= require("ejs");
@@ -43,6 +44,27 @@ app.get('/', async(req,res)=>{
     }
 })
 
+app.get('/proxy', async (req, res) => {
+    try {
+      const imageUrl = req.query.url; // Pass the image URL as a query parameter
+  
+      // Use Axios to fetch the image
+      const response = await axios.get(imageUrl, {
+        responseType: 'arraybuffer', // Specify responseType to handle binary data
+      });
+  
+      // Set the appropriate content type based on the response
+      const contentType = response.headers['content-type'];
+      res.set('Content-Type', contentType);
+  
+      // Send the image data as a buffer
+      res.send(response.data);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error proxying the image');
+    }
+  });
+  
 app.get('/sizweAsadmin',(req,res)=>{
     const blogs=Blog.find({});
     res.render('admin', {blogs});

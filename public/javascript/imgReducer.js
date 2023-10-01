@@ -96,30 +96,37 @@ customFileInput.addEventListener("change", displayImageAndSize)
     }
 
 };
-//getting processed images from local storage and rendering when loading the page
+// getting processed images from local storage and rendering when loading the page
 
-const processed_images_in_localStorage=JSON.parse(localStorage.getItem('resizedImages')) || [];
+const processed_images_in_localStorage = JSON.parse(localStorage.getItem('resizedImages')) || [];
 processed_images_in_localStorage.reverse();
 
-processed_images_in_localStorage.forEach(element => {
-  const sized_reduced_imgs=document.getElementById('sized-reduced-imgs');
-  const div= document.createElement('div');
-  //creating an image blob for download
-  const imageURL=element;
-  const blob= new Blob([imageURL]);
-  const url= URL.createObjectURL(blob);
-  //creating an anchor 
-  const anchor=document.createElement('a');
-  anchor.className="download";
-  anchor.href=url;
-  anchor.download= imageURL;
-  anchor.textContent="Download";
-  div.className="savedImgs"
-  div.innerHTML=`<img src="${element}"><p>Image size:${blob.size}KB `;
-  div.appendChild(anchor);
-  sized_reduced_imgs.appendChild(div);
+processed_images_in_localStorage.forEach(async (element) => {
+  const sized_reduced_imgs = document.getElementById('sized-reduced-imgs');
+  const div = document.createElement('div');
+  const proxyUrl = `/proxy?url=${encodeURIComponent(element)}`;
 
+  try {
+    const response = await fetch(proxyUrl);
+    const imageBlob = await response.blob();
+    const url = URL.createObjectURL(imageBlob);
+
+    const anchor = document.createElement('a');
+    anchor.className = 'download';
+    anchor.href = url;
+    anchor.download = 'Imgae_perfector.jpg';
+    anchor.textContent = 'Download';
+
+    div.className = 'savedImgs';
+    div.innerHTML = `<img src="${url}"><p>Image size: ${imageBlob.size / 1024} KB`;
+    div.appendChild(anchor);
+
+    sized_reduced_imgs.appendChild(div);
+  } catch (error) {
+    console.error(error);
+  }
 });
+
 
 
 // function to resize the image using HTML canvas
