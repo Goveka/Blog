@@ -46,25 +46,34 @@ app.get('/', async(req,res)=>{
 
 app.get('/proxy', async (req, res) => {
     try {
-      const imageUrl = req.query.url; // Pass the image URL as a query parameter
+      const imageUrl = req.query.url;
   
-      // Use Axios to fetch the image
+      if (!imageUrl) {
+        throw new Error('Image URL is missing.');
+      }
+  
       const response = await axios.get(imageUrl, {
-        responseType: 'arraybuffer', // Specify responseType to handle binary data
+        responseType: 'arraybuffer',
       });
   
-      // Set the appropriate content type based on the response
-      const contentType = response.headers['content-type'];
-      res.set('Content-Type', contentType);
-  
-      // Send the image data as a buffer
-      res.send(response.data);
+      if (response.status === 200) {
+        const contentType = response.headers['content-type'];
+        res.set('Content-Type', contentType);
+        res.send(response.data);
+      } else if (response.status === 404) {
+        // Handle 404 Not Found
+        res.status(404).send('Image not found');
+      } else {
+        throw new Error('Unexpected response status: ' + response.status);
+      }
     } catch (error) {
-      console.error(error);
-      res.status(500).send('Error proxying the image');
+      console.error('Error:', error.message);
+      res.status(500).send('Internal Server Error');
     }
   });
   
+  
+
 app.get('/sizweAsadmin',(req,res)=>{
     const blogs=Blog.find({});
     res.render('admin', {blogs});

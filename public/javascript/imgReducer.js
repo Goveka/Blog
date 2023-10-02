@@ -96,12 +96,12 @@ customFileInput.addEventListener("change", displayImageAndSize)
     }
 
 };
-// getting processed images from local storage and rendering when loading the page
+
 
 const processed_images_in_localStorage = JSON.parse(localStorage.getItem('resizedImages')) || [];
 processed_images_in_localStorage.reverse();
 
-processed_images_in_localStorage.forEach(async (element) => {
+processed_images_in_localStorage.forEach(async (element, index) => {
   const sized_reduced_imgs = document.getElementById('sized-reduced-imgs');
   const div = document.createElement('div');
   const proxyUrl = `/proxy?url=${encodeURIComponent(element)}`;
@@ -114,7 +114,7 @@ processed_images_in_localStorage.forEach(async (element) => {
     const anchor = document.createElement('a');
     anchor.className = 'download';
     anchor.href = url;
-    anchor.download = 'Imgae_perfector.jpg';
+    anchor.download = 'downloaded_image.jpg';
     anchor.textContent = 'Download';
 
     div.className = 'savedImgs';
@@ -124,8 +124,15 @@ processed_images_in_localStorage.forEach(async (element) => {
     sized_reduced_imgs.appendChild(div);
   } catch (error) {
     console.error(error);
+    // Handle the error and remove the image URL from the array
+    processed_images_in_localStorage.splice(index, 1);
+    const updatedImages = processed_images_in_localStorage.filter((element) => element !== element);
+    console.log(updatedImages)
+    localStorage.setItem('resizedImages', JSON.stringify(updatedImages));
   }
 });
+
+
 
 
 
