@@ -83,7 +83,7 @@ customFileInput.addEventListener("change", displayImageAndSize)
         const number_of_images=document.getElementById('number_of_images');
         let numberOfImages=processed_images_in_localStorage.length;
         number_of_images.textContent=`Number of images:${numberOfImages}`;
-        number_of_Images.style.display="block"
+        number_of_images.style.display="block"
 
         if(processed_images_in_localStorage.length > 50){
           processed_images_in_localStorage.shift()
