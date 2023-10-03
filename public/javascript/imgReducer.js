@@ -101,39 +101,48 @@ customFileInput.addEventListener("change", displayImageAndSize)
 const processed_images_in_localStorage = JSON.parse(localStorage.getItem('resizedImages')) || [];
 processed_images_in_localStorage.reverse();
 
-processed_images_in_localStorage.forEach(async (element, index) => {
+async function processImages() {
   const sized_reduced_imgs = document.getElementById('sized-reduced-imgs');
-  const div = document.createElement('div');
-  const proxyUrl = `/proxy?url=${encodeURIComponent(element)}`;
 
-  try {
-    const response = await fetch(proxyUrl);
-    const imageBlob = await response.blob();
-    const url = URL.createObjectURL(imageBlob);
+  for (let index = 0; index < processed_images_in_localStorage.length; index++) {
+    const element = processed_images_in_localStorage[index];
+    const div = document.createElement('div');
+    const proxyUrl = `/proxy?url=${encodeURIComponent(element)}`;
 
-    const anchor = document.createElement('a');
-    anchor.className = 'download';
-    anchor.href = url;
-    anchor.download = 'downloaded_image.jpg';
-    anchor.textContent = 'Download';
+    try {
+      const response = await fetch(proxyUrl);
 
-    div.className = 'savedImgs';
-    div.innerHTML = `<img src="${url}"><p>Image size: ${imageBlob.size / 1024} KB`;
-    div.appendChild(anchor);
+      if (!response.ok) {
+        // Handle non-OK responses (e.g., 404)
+        throw new Error(`Failed to fetch image: ${response.statusText}`);
+      }
 
-    sized_reduced_imgs.appendChild(div);
-  } catch (error) {
-    console.error(error);
-    // Handle the error and remove the image URL from the array
-    processed_images_in_localStorage.splice(index, 1);
-    const updatedImages = processed_images_in_localStorage.filter((element) => element !== element);
-    console.log(updatedImages)
-    localStorage.setItem('resizedImages', JSON.stringify(updatedImages));
+      const imageBlob = await response.blob();
+      const url = URL.createObjectURL(imageBlob);
+
+      const anchor = document.createElement('a');
+      anchor.className = 'download';
+      anchor.href = url;
+      anchor.download = 'downloaded_image.jpg';
+      anchor.textContent = 'Download';
+
+      div.className = 'savedImgs';
+      div.innerHTML = `<img src="${url}"><p>Image size: ${imageBlob.size / 1024} KB`;
+      div.appendChild(anchor);
+
+      sized_reduced_imgs.appendChild(div);
+    } catch (error) {
+      console.error(error);
+      console.log(processed_images_in_localStorage);
+      // Handle the error and remove the image URL from the array
+      processed_images_in_localStorage.splice(index, 1);
+      console.log(processed_images_in_localStorage);
+      localStorage.setItem('resizedImages', JSON.stringify(processed_images_in_localStorage));
+    }
   }
-});
+}
 
-
-
+processImages();
 
 
 // function to resize the image using HTML canvas
