@@ -78,6 +78,10 @@ h4{
     gap: 20px;
 }
 
+#image-input div{
+    border: 2px solid black;
+}
+
 #sized-reduced-imgs{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
