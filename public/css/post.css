@@ -9,16 +9,18 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #222; /* Dark background */
+    color: #fff; /* Consistent white text */
 }
+
 
 main{
     flex: 1;
     padding: 20px;
-    background-color: #f1eded;
+    background-color: #333;
 }
 
 header{
-    background-color: #f1f1f1;
     padding: 20px;
     text-align: center;
 }
@@ -72,6 +74,7 @@ main p{
 #share-buttons a{
     margin-left: 10px;
     margin-right: 10px;
+    color: #00eeff;
 }
 
 .fa-reddit{
@@ -118,7 +121,7 @@ main p{
 .swiperwrapper a{
     display: inline-block;
     font-size: 14px;
-    color: blue;
+    color: #00eeff;
     text-decoration: none;
 }
 
@@ -136,7 +139,7 @@ display: none;
 a{
     display: inline-block;
     font-size: 14px;
-    color: blue;
+    color: #00eeff;;
     text-decoration: none;
 }
 
@@ -145,10 +148,6 @@ a:hover{
     background-color: #ffffff00;
 }
 
-#home{
-    background-color: #ffffff96;
-    color: #0f0e0e;
-}
 
 footer{
     background-color: #000000c7;
