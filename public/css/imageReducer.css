@@ -53,6 +53,14 @@ a:hover {
   text-decoration: underline;
 }
 
+#addImages{
+  display: none;
+}
+
+#download{
+  display: none;
+}
+
 #input p {
   background-color: #00eeff20; /* Transparent blue for input area */
   font-weight: bold;
