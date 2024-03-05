@@ -34,14 +34,12 @@ database.once('open', ()=>{
 
 const redirectDomain = 'techfinace.com';
 app.get('/', async(req,res)=>{
-    res.redirect(301, `https://${redirectDomain}`);
-
     try {
         //getting all blog post from the database
         const blogPosts=  await Blog.find({});
         blogPosts.sort((a,b)=> a._id - b._id);
         blogPosts.reverse();
-        res.render('home', {blogPosts})
+        res.render('home', {blogPosts}).redirect(301, `https://${redirectDomain}`);
     } catch (error) {
         res.status(500).send({error: error.message})
     }
@@ -83,13 +81,12 @@ app.get('/sizweAsadmin',(req,res)=>{
 });
 
 app.get('/article/:id/:tittle',async(req,res)=>{
-    res.redirect(301, `https://${redirectDomain}`);
     try {
         const post = await Blog.findById(req.params.id);
         const allBlogs= await Blog.find({});
        const recommended= allBlogs.filter(recommended => recommended.catergory.toString() === post.catergory)
        const removeCurrentPostFrmRecommended= recommended.filter(recommended => recommended._id.toString() !== req.params.id)
-        res.render('post', {post, removeCurrentPostFrmRecommended})   
+        res.render('post', {post, removeCurrentPostFrmRecommended}).redirect(301, `https://${redirectDomain}`);  
     } catch (error) {
         res.send(error)
     }
@@ -188,8 +185,8 @@ app.delete('/remove_blog/:id', async(req,res)=>{
 
 // rendering the image reducer to the front end
 app.get('/image-perfector',(req,res)=>{
-    res.redirect(301, `https://${redirectDomain}`);
-    res.render('imgReducer', {})
+
+    res.render('imgReducer', {}).redirect(301, `https://${redirectDomain}`);
 })
 
 app.listen(port, ()=> console.log(`app is running on port ${port}`))
