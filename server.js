@@ -29,10 +29,13 @@ database.on('error', (error)=>{
 })
 database.once('open', ()=>{
     console.log("database connected")
-})
+});
 
 
+const redirectDomain = 'techfinace.com';
 app.get('/', async(req,res)=>{
+    res.redirect(301, `https://${redirectDomain}`);
+
     try {
         //getting all blog post from the database
         const blogPosts=  await Blog.find({});
@@ -80,6 +83,7 @@ app.get('/sizweAsadmin',(req,res)=>{
 });
 
 app.get('/article/:id/:tittle',async(req,res)=>{
+    res.redirect(301, `https://${redirectDomain}`);
     try {
         const post = await Blog.findById(req.params.id);
         const allBlogs= await Blog.find({});
@@ -184,6 +188,7 @@ app.delete('/remove_blog/:id', async(req,res)=>{
 
 // rendering the image reducer to the front end
 app.get('/image-perfector',(req,res)=>{
+    res.redirect(301, `https://${redirectDomain}`);
     res.render('imgReducer', {})
 })
 
